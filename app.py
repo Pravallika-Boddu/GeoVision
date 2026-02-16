@@ -554,34 +554,6 @@ def main():
             classification_result = st.session_state['classification_result']
             satellite_image = st.session_state['satellite_image']
             
-            col1, col2 = st.columns([1, 1])
-            
-            with col1:
-                st.subheader("Satellite Image")
-                st.image(satellite_image, use_container_width=True, 
-                        caption=f"Location: {current_location_name}")
-            
-            with col2:
-                st.subheader("Classification Results")
-                predicted_class = classification_result['predicted_class']
-                confidence = classification_result['confidence']
-                description = classification_result['description']
-                class_color = classification_result.get('color', '#667eea')
-                
-                st.markdown(f"""
-                <div style="background: linear-gradient(135deg, {class_color} 0%, #764ba2 100%);
-                            padding: 2rem; border-radius: 15px; color: white; text-align: center;">
-                    <h2 style="margin: 0; font-size: 2rem;">{predicted_class}</h2>
-                    <p style="margin: 0.5rem 0; font-size: 1rem;">{description}</p>
-                    <h3 style="margin: 1rem 0 0 0; font-size: 1.8rem;">Confidence: {confidence*100:.2f}%</h3>
-                </div>
-                """, unsafe_allow_html=True)
-            
-            
-            
-    
-            
-            
             
             # Show probability distribution
             st.subheader("All Classes Probability Distribution")
